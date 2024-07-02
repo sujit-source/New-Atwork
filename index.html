@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+  <meta name="author" content="Łukasz Holeczek">
+  <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+  <title>AtWork</title>
+ 
+
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Vendors styles-->
+  <link rel="stylesheet" href="assets/scss/simplebar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="assets/scss/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    
+     
+  <!-- We use assets/sthose styles to show code examples, you should remove them in your application.-->
+  <link href="assets/scss/examples.css" rel="stylesheet">
+  <!-- We use assets/sthose styles to style Carbon ads and CoreUI PRO banner, you should remove them in your application.-->
+  <link href="assets/scss/ads.css" rel="stylesheet">
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/color-modes.js"></script>
+  <link href="assets/scss/coreui-chartjs.css" rel="stylesheet">
+<style>
+  .greenbutton{
+    background-color: green;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .redbutton{
+    background-color: rgb(221, 38, 38);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+  }
+</style>
+<style>
+  input[type="checkbox"] {
+      cursor: pointer;
+    }
+  [type=search] {
+    
+  
+    outline-offset: 0;
+    outline-color: #0057ffad;
+}
+#mytable_paginate .paginate_button {
+      color: #0057ffad !important;
+      border: transparent !important;
+    background-color: white !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    }
+
+.dataTables_wrapper .dataTables_length select {
+  outline-color: #0057ffad;
+}
+  #mytable_filter{
+    padding: 10px;
+  }
+  #mytable_length{
+    padding: 10px;
+  }
+  .d-none {
+      display: none !important;
+    }
+    .sidebar-toggler::before {
+   
+    background-color: #fff;
+    }
+</style>
+</head>
+
+<body>
+  <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
+    <div class="sidebar-header border-bottom">
+      <div class="sidebar-brand">
+        <img class="sidebar-brand-full" alt="CoreUI Logo" src="assets/img/Logo.png" width="150" height="32">
+        <svg class="sidebar-brand-narrow" width="32" height="32" alt="CoreUI Logo">
+          
+        </svg>
+      </div>
+      <button class="header-toggler" type="button"
+        onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+        <svg class="icon icon-lg">
+          <use xlink:href="assets/icons/menu.svg"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+      <li class="nav-item"><a class="nav-link active" href="index.html">
+          <i class="fa-solid fa-tachometer-alt pe-2"></i> Dashboard</a></li>
+
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid fa-users pe-2"></i> Employee</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Employee</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid fa-note-sticky pe-2"></i> Attendance</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="buttons/buttons.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Tna Data Viewer</a></li>
+          <li class="nav-item"><a class="nav-link" href="buttons/button-group.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Attendance Update </a></li>
+          <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Leave Entry</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid  fa-wallet pe-2"></i> Salary</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="forms/form-control.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Salary Data Sheet</a></li>
+          <li class="nav-item"><a class="nav-link" href="forms/select.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Salary Data 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Increment and Arrear</a></li>
+
+        </ul>
+      </li>
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid fa-screwdriver-wrench pe-2"></i> Tools</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Update Data from Tna<span
+                class="badge badge-sm bg-success ms-auto"></span></a></li>
+          <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-brand.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Full and Final</a></li>
+
+        </ul>
+      </li>
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid fa-check-double pe-2"></i> Approvals</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Leaves</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Loan/Advance</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/modals.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Expenses</a></li>
+
+        </ul>
+      </li>
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid fa-gears pe-2"></i>Settings</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Branch and Division</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Department</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/modals.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Designation</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Shift</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Allowance</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/modals.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Deduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Holiday</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Configuration</a></li>
+
+
+        </ul>
+      </li>
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-regular fa-file pe-2"></i> Reports</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Employee Master Report</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Attendance Report</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/modals.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Salary Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Leave Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Loan and Advance Report</a></li>
+
+
+
+        </ul>
+      </li>
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+          <i class="fa-solid fa-people-roof pe-2"></i>People Management</a>
+        <ul class="nav-group-items compact">
+          <li class="nav-item"><a class="nav-link" href="notifications/alerts.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> Users</a></li>
+          <li class="nav-item"><a class="nav-link" href="notifications/badge.html"><span class="nav-icon"><span
+                  class="nav-icon-bullet"></span></span> User role</a></li>
+
+
+
+
+        </ul>
+      </li>
+
+      <li class="nav-divider"></li>
+
+    </ul>
+    <div class="sidebar-footer border-top d-md-flex " style="color: white;">
+      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
+  </div>
+  <div class="wrapper d-flex flex-column min-vh-100">
+    <header class="header header-sticky p-0 mb-4">
+      <div class="container-fluid border-bottom px-4">
+        <button class="header-toggler" type="button"
+          onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="header-nav d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link d-none" href="#">Users</a></li>
+          <li class="nav-item"><a class="nav-link d-none" href="#">Settings</a></li>
+        </ul>
+        <ul class="header-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">
+              <svg class="icon icon-lg">
+                
+              </svg></a></li>
+          <li class="nav-item"><a class="nav-link" href="#">
+              <svg class="icon icon-lg">
+               
+              </svg></a></li>
+          <li class="nav-item"><a class="nav-link" href="#">
+            <i class="fa-solid fa-bell"style="
+    font-size: 25px;"></i></a></li>
+              <li class="nav-item dropdown">
+                <button class="btn btn-link nav-link py-2 px-2 d-flex align-items-center" type="button" aria-expanded="false" data-coreui-toggle="dropdown">
+                  <svg class="icon icon-lg theme-icon-active">
+                    <i class="fa-solid fa-moon" style="
+    font-size: 25px;
+"></i>
+                    <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-contrast"></use>
+                  </svg>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" style="--cui-dropdown-min-width: 8rem;">
+                  <li>
+                    <button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="light">
+                      <svg class="icon icon-lg me-3">
+                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-sun"></use>
+                      </svg>Light
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="dark">
+                      <svg class="icon icon-lg me-3">
+                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-moon"></use>
+                      </svg>Dark
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item d-flex align-items-center active" type="button" data-coreui-theme-value="auto">
+                      <svg class="icon icon-lg me-3">
+                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-contrast"></use>
+                      </svg>Auto
+                    </button>
+                  </li>
+                </ul>
+              </li>
+        </ul>
+
+        <ul class="header-nav">
+          <li class="nav-item dropdown"><a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#"
+              role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg"
+                  alt="user@@email.com"></div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end pt-0">
+              <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Account
+              </div><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a><a class="dropdown-item"
+                href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
+              <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold my-2">
+                <div class="fw-semibold">Settings</div>
+              </div>
+              <a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                
+                </svg> Profile</a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  
+                </svg> Settings</a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a><a class="dropdown-item"
+                href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                 
+                </svg> Lock Account</a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  
+                </svg> Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </header>
+    <div class="body flex-grow-1">
+      <div class="container-lg px-4">
+
+        <!-- /.row-->
+        <div class="row p-3">
+          <div class="d-flex justify-content-between  mb-1">
+            <div class="card-header p-2"><strong style="font-size: 20px;">Employee</strong></div>
+            
+            <div class="p-2 "><button class="btn btn-primary" type="button">
+              <i class="fa-solid fa-user-plus pe-1"></i>Add Employee
+            </button></div>
+          </div>
+        </div>
+       
+        <!-- /.row-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4">
+
+              <div class=" mb-1">
+                <div class="tab-content rounded-bottom d-flex justify-content-between">
+                  <div class="tab-pane p-3 pb-0 active preview" role="tabpanel" id="preview-1002">
+                    <div class="btn-group me-1">
+                      <select class="form-select" aria-label="Default select example" id="departmentSelect">
+                        <option selected>Department</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Developer">Developer</option>
+                        <option value="HR">HR</option>
+                      </select>
+                    </div>
+                    <div class="btn-group  me-1">
+                      <select class="form-select" aria-label="Default select example" id="designationSelect">
+                        <option selected>Designation</option>
+                        <option value="Full Stack Developer">Full Stack Developer</option>
+                        <option value="Business Development">Business Development</option>
+                        <option value="HR Leader">HR Leader</option>
+                      </select>
+                    </div>
+                    <div class="btn-group  me-1">
+                      <select class="form-select" aria-label="Default select example" id="branchSelect">
+                        <option selected>Branch</option>
+                        <option value="001">001</option>
+                        <option value="002">002</option>
+                      </select>
+                    </div>
+                    <div class="btn-group me-1">
+                      <select class="form-select" aria-label="Default select example" id="statusSelect">
+                        <option selected>Status</option>
+                        <option value="Active">Active</option>
+                        <option value="InActive">InActive</option>
+                      </select>
+                    </div>
+
+                    
+                    
+
+                    
+                    
+                  </div>
+                  <div class="btn-group p-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+                      Settings
+                    </button>
+                    <ul class="dropdown-menu p-1">
+                      <label class="border-bottom mb-1 text-center">Hide Columns</label>
+                      
+                      <li><input type="checkbox" class="form-check-input me-1" data-column="4" id="department" checked><label for="department">Department</label></li>
+                      <li><input type="checkbox" class="form-check-input me-1" data-column="6" id="designation" checked><label for="designation">Designation</label></li>
+                      <li><input type="checkbox" class="form-check-input me-1" data-column="5" id="branch" checked><label for="branch">Branch</label></li>
+                      <li><input type="checkbox" class="form-check-input me-1" data-column="7" id="doj" checked><label for="doj">Date Of Joining</label></li>
+                      <li><input type="checkbox" class="form-check-input me-1" data-column="8" id="status" checked><label for="status">Status</label></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <div class="card-body" style="
+    padding-top: 5px;
+">
+                <div class="demo-html">
+                 
+                </div>
+                <div class="table-responsive ">
+                  <table class="table border mb-0 " id="mytable" style="border-radius: 5px;">
+                    <thead class="fw-semibold text-nowrap">
+                      <tr class="align-middle">
+                        <th class="bg-body-secondary text-center"><input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input"></th>
+                        <th class="bg-body-secondary text-center"></th>
+                        <th class="bg-body-secondary" data-column-id="1">Employee</th>
+                        <th class="bg-body-secondary text-center" data-column-id="2">Department</th>
+                        <th class="bg-body-secondary" data-column-id="3">Designation</th>
+                        <th class="bg-body-secondary text-center" data-column-id="4">Branch</th>
+                        <th class="bg-body-secondary" data-column-id="5">Date Of Joining</th>
+                        <th class="bg-body-secondary" data-column-id="6">Status</th>
+                      </tr>
+                    </thead>
+                    
+                    <tbody class="">
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-success"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">SujitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/2.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-danger"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Simmi-E089</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Sales</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Business Development</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">002</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/3.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-warning"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">SujitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/4.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-secondary"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">SujitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/5.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-success"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">SujitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="redbutton">InActive</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/6.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-danger"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">rohitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">HR</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">HR Leader</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-success"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">SujitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/2.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-danger"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Simmi-E089</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Sales</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Business Development</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">002</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/3.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-warning"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Diviyajeet-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/4.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-secondary"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Diviyajeet-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="redbutton">InActive</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/5.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-success"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">SujitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">Developer</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">Full Stack Developer</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="redbutton">InActive</p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="align-middle">
+                        <td class="text-center">
+                          <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </td>
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/6.jpg"
+                              alt="user@@email.com"><span class="avatar-status bg-danger"></span></div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">rohitKumar-E087</div>
+                          <div class="small text-body-secondary text-nowrap"><span>Sujit Kumar</span> | Employee Id:
+                            E087</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">HR</div>
+                        </td>
+                        <td>
+                          <div class="text-nowrap">HR Leader</div>
+                        </td>
+                        <td class="text-center">
+                          <div class="text-nowrap">001</div>
+                        </td>
+                        <td>
+
+                          <div class="fw-semibold text-nowrap">Jun 11, 2023 </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <p class="greenbutton">Active</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- /.row-->
+    </div>
+  </div>
+  <footer class="footer px-4">
+    <div>Sujit </a> © 2024 zorder.</div>
+    <div class="ms-auto">Powered by&nbsp;Sujit UI Components</a></div>
+  </footer>
+  </div>
+  
+  
+  <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+  <!-- CoreUI and necessary plugins-->
+  <script src="assets/js/coreui.bundle.min.js"></script>
+  <script src="assets/js/simplebar.min.js"></script>
+  <script>
+    const header = document.querySelector('header.header');
+
+    document.addEventListener('scroll', () => {
+      if (header) {
+        header.classList.toggle('shadow-sm', document.documentElement.scrollTop > 0);
+      }
+    });
+   
+  </script>
+  <!-- Plugins and scripts required by this view-->
+   
+  <script src="assets/js/chart.umd.js"></script>
+  <script src="assets/js/coreui-chartjs.js"></script>
+  <script src="assets/js/index.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/carbon.js"></script>
+  <script src="assets/js/dataTables.bootstrap5.js"></script>
+  <script src="assets/js/dataTables.js"></script>
+  <script>
+  </script>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready(function() {
+  $('#mytable').DataTable();
+});
+</script>
+<script>
+  document.getElementById('departmentSelect').addEventListener('change', filterTable);
+document.getElementById('designationSelect').addEventListener('change', filterTable);
+document.getElementById('branchSelect').addEventListener('change', filterTable);
+document.getElementById('statusSelect').addEventListener('change', filterTable);
+document.getElementById('columnVisibilitySelect').addEventListener('change', toggleColumnVisibility);
+
+
+function filterTable() {
+  var selectedDepartment = document.getElementById('departmentSelect').value;
+  var selectedDesignation = document.getElementById('designationSelect').value;
+  var selectedBranch = document.getElementById('branchSelect').value;
+  var selectedStatus = document.getElementById('statusSelect').value;
+
+  var table = document.getElementById('mytable');
+  var rows = table.getElementsByTagName('tr');
+
+  for (var i = 1; i < rows.length; i++) {
+    var departmentCell = rows[i].getElementsByTagName('td')[3];
+    var designationCell = rows[i].getElementsByTagName('td')[4];
+    var branchCell = rows[i].getElementsByTagName('td')[5];
+    var statusCell = rows[i].getElementsByTagName('td')[7];
+
+    var department = departmentCell ? (departmentCell.textContent || departmentCell.innerText).trim() : '';
+    var designation = designationCell ? (designationCell.textContent || designationCell.innerText).trim() : '';
+    var branch = branchCell ? (branchCell.textContent || branchCell.innerText).trim() : '';
+    var status = statusCell ? (statusCell.textContent || statusCell.innerText).trim() : '';
+
+    var showRow = true;
+
+    if (selectedDepartment !== 'Department' && department !== selectedDepartment) {
+      showRow = false;
+    }
+    if (selectedDesignation !== 'Designation' && designation !== selectedDesignation) {
+      showRow = false;
+    }
+    if (selectedBranch !== 'Branch' && branch !== selectedBranch) {
+      showRow = false;
+    }
+    if (selectedStatus !== 'Status' && status !== selectedStatus) {
+      showRow = false;
+    }
+
+    rows[i].style.display = showRow ? '' : 'none';
+  }
+}
+
+</script>
+<script>
+  document.querySelectorAll('.dropdown-menu input[type="checkbox"]').forEach(checkbox => {
+  checkbox.addEventListener('change', toggleColumnVisibility);
+});
+
+function toggleColumnVisibility() {
+  const checkboxes = document.querySelectorAll('.dropdown-menu input[type="checkbox"]');
+  const table = document.getElementById('mytable');
+  
+  // Get all table header cells
+  const headers = table.querySelectorAll('thead th');
+  
+  // Get all table data cells
+  const rows = table.querySelectorAll('tbody tr');
+
+  checkboxes.forEach(checkbox => {
+    const columnIndex = checkbox.getAttribute('data-column') - 1; // Index is 0-based
+    const shouldShow = checkbox.checked;
+
+    // Show or hide header
+    if (headers[columnIndex]) {
+      headers[columnIndex].style.display = shouldShow ? '' : 'none';
+    }
+
+    // Show or hide each cell in the column
+    rows.forEach(row => {
+      const cells = row.getElementsByTagName('td');
+      if (cells[columnIndex]) {
+        cells[columnIndex].style.display = shouldShow ? '' : 'none';
+      }
+    });
+  });
+}
+
+// Initialize column visibility based on initial checkbox states
+toggleColumnVisibility();
+
+</script>
+</body>
+
+</html>
