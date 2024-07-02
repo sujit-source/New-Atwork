@@ -47,14 +47,14 @@
   <link href="assets/scss/coreui-chartjs.css" rel="stylesheet">
 <style>
   .greenbutton{
-    background-color: green;
-    color: #fff;
+    background: rgba(13, 205, 148, 0.1);
+    color: #0dcd94;
     text-align: center;
     border-radius: 10px;
   }
   .redbutton{
-    background-color: rgb(221, 38, 38);
-    color: #fff;
+    background: rgba(247, 40, 74, 0.1);
+    color: #f7284a;
     text-align: center;
     border-radius: 10px;
   }
@@ -67,7 +67,7 @@
     
   
     outline-offset: 0;
-    outline-color: #0057ffad;
+    outline-color: #cfc7f3;
 }
 #mytable_paginate .paginate_button {
       color: #0057ffad !important;
@@ -79,6 +79,8 @@
 
 .dataTables_wrapper .dataTables_length select {
   outline-color: #0057ffad;
+  background: #f1f4fb;
+    border: none;
 }
   #mytable_filter{
     padding: 10px;
@@ -93,11 +95,71 @@
    
     background-color: #fff;
     }
+    .bscj{
+      background: #f1f4fb;
+    }
+    .form-select {
+    
+    background-color: #f1f4fb;
+   
+    border: none;
+    
+}
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #6261cc26;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: #f1f4fb;
+    margin-left: 3px;
+}
+</style>
+<style>
+
+  .mycardbody{
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 1.5rem 1.5rem;
+    position: relative;
+  }
+  .bg-success-transparent {
+    background: rgba(13, 205, 148, 0.1);
+    color: #0dcd94;
+}
+.text-secondary {
+    color: #fe7f00 !important;
+}
+.bg-primary-transparent {
+    background: rgba(51, 102, 255, 0.2);
+    color: #3366ff;
+}
+.bg-secondary-transparent {
+    background: rgba(254, 127, 0, 0.1);
+    color: #fe7f00;
+}
+.bg-danger-transparent {
+    background: rgba(247, 40, 74, 0.1);
+    color: #f7284a;
+}
+.icon1 {
+    height: 55px;
+    width: 55px;
+    line-height: 57px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 24px;
+    
+}
+.mytext{
+  color: #263871;
+}
+.mycard{
+  border: none !important;
+}
 </style>
 </head>
 
 <body>
-  <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
+  <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar" style="background: #17263a;">
     <div class="sidebar-header border-bottom">
       <div class="sidebar-brand">
         <img class="sidebar-brand-full" alt="CoreUI Logo" src="assets/img/Logo.png" width="150" height="32">
@@ -235,9 +297,9 @@
     </div>
   </div>
   <div class="wrapper d-flex flex-column min-vh-100">
-    <header class="header header-sticky p-0 mb-4">
-      <div class="container-fluid border-bottom px-4">
-        <button class="header-toggler" type="button"
+    <header class="header header-sticky p-0 ">
+      <div class="container-fluid  px-4">
+        <button class="header-toggler bscj " type="button"
           onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -256,12 +318,12 @@
                
               </svg></a></li>
           <li class="nav-item"><a class="nav-link" href="#">
-            <i class="fa-solid fa-bell"style="
+            <i class="fa-solid fa-bell "style="
     font-size: 25px;"></i></a></li>
               <li class="nav-item dropdown">
                 <button class="btn btn-link nav-link py-2 px-2 d-flex align-items-center" type="button" aria-expanded="false" data-coreui-toggle="dropdown">
                   <svg class="icon icon-lg theme-icon-active">
-                    <i class="fa-solid fa-moon" style="
+                    <i class="fa-solid fa-moon " style="
     font-size: 25px;
 "></i>
                     <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-contrast"></use>
@@ -294,7 +356,7 @@
         </ul>
 
         <ul class="header-nav">
-          <li class="nav-item dropdown"><a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#"
+          <li class="nav-item dropdown "><a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#"
               role="button" aria-haspopup="true" aria-expanded="false">
               <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg"
                   alt="user@@email.com"></div>
@@ -345,7 +407,9 @@
       </div>
 
     </header>
-    <div class="body flex-grow-1">
+    <div class="body flex-grow-1 pt-4" style="
+    background: #f1f4fb ;
+">
       <div class="container-lg px-4">
 
         <!-- /.row-->
@@ -358,13 +422,86 @@
             </button></div>
           </div>
         </div>
-       
+        <div class="row g-4 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card mycard text-white">
+              <div class="card-body mycardbody">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="mt-0 text-start"> <span class="font-weight-semibold mytext">Total Employees</span>
+                      <h3 class="mb-0 mt-1 text-success">1,000</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon1 bg-success-transparent my-auto  float-end"> <i class="fa-solid fa-users"></i> </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <!-- /.col-->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card mycard text-white">
+              <div class="card-body mycardbody">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="mt-0 text-start"> <span class="font-weight-semibold mytext">Total Male Employees</span>
+                      <h3 class="mb-0 mt-1 text-primary">550</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon1 bg-primary-transparent my-auto  float-end"> <i class="fa-solid fa-person"></i> </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <!-- /.col-->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card mycard text-white">
+              <div class="card-body mycardbody">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="mt-0 text-start"> <span class="font-weight-semibold mytext">Total female Employees</span>
+                      <h3 class="mb-0 mt-1 text-secondary">450</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon1 bg-secondary-transparent my-auto  float-end"> <i class="fa-solid fa-person-dress"></i> </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <!-- /.col-->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card mycard text-white">
+              <div class="card-body mycardbody">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="mt-0 text-start"> <span class="font-weight-semibold mytext">Total New Employees</span>
+                      <h3 class="mb-0 mt-1 text-danger">200</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon1 bg-danger-transparent my-auto  float-end"> <i class="fa-solid fa-user-group"></i></div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <!-- /.col-->
+        </div>
         <!-- /.row-->
         <div class="row">
           <div class="col-md-12">
-            <div class="card mb-4">
+            <div class="card mb-4 " style="border: none;border-radius: 10px;" >
 
-              <div class=" mb-1">
+              <div class=" ">
                 <div class="tab-content rounded-bottom d-flex justify-content-between">
                   <div class="tab-pane p-3 pb-0 active preview" role="tabpanel" id="preview-1002">
                     <div class="btn-group me-1">
@@ -423,7 +560,7 @@
               
               
               <div class="card-body" style="
-    padding-top: 5px;
+    padding-top: 0px;
 ">
                 <div class="demo-html">
                  
@@ -432,14 +569,14 @@
                   <table class="table border mb-0 " id="mytable" style="border-radius: 5px;">
                     <thead class="fw-semibold text-nowrap">
                       <tr class="align-middle">
-                        <th class="bg-body-secondary text-center"><input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input"></th>
-                        <th class="bg-body-secondary text-center"></th>
-                        <th class="bg-body-secondary" data-column-id="1">Employee</th>
-                        <th class="bg-body-secondary text-center" data-column-id="2">Department</th>
-                        <th class="bg-body-secondary" data-column-id="3">Designation</th>
-                        <th class="bg-body-secondary text-center" data-column-id="4">Branch</th>
-                        <th class="bg-body-secondary" data-column-id="5">Date Of Joining</th>
-                        <th class="bg-body-secondary" data-column-id="6">Status</th>
+                        <th class=" text-center" style="background: #f1f4fb !important;"><input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input"></th>
+                        <th class=" text-center" style="background: #f1f4fb !important;"></th>
+                        <th class="" data-column-id="1"style="background: #f1f4fb !important;">Employee</th>
+                        <th class=" text-center" data-column-id="2"style="background: #f1f4fb !important;">Department</th>
+                        <th class="" data-column-id="3"style="background: #f1f4fb !important;">Designation</th>
+                        <th class=" text-center" data-column-id="4"style="background: #f1f4fb !important;">Branch</th>
+                        <th class=" data-column-id="5" style="background: #f1f4fb !important;">Date Of Joining</th>
+                        <th class="" data-column-id="6"style="background: #f1f4fb !important;">Status</th>
                       </tr>
                     </thead>
                     
